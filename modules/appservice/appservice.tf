@@ -1,6 +1,6 @@
 resource "azurerm_app_service_plan" "test" {
-  name                = "app-service-plan"-"${var.qa}"
-  location            = "${var.resource}"
+  name                = "${var.application_type}-${var.resource_type}"
+  location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
 
   sku {
@@ -10,8 +10,8 @@ resource "azurerm_app_service_plan" "test" {
 }
 
 resource "azurerm_app_service" "test" {
-  name                = "app-service"-"${var.qa}"
-  location            = "${var.resource}"
+  name                = "${var.application_type}-${var.resource_type}"
+  location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
   app_service_plan_id = azurerm_app_service_plan.test.id
 
