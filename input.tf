@@ -14,6 +14,7 @@ variable deployment {}
 
 # name 3rd project udacity qa
 variable "qa" {
-    description = "Name for all the resources in this resource group"
-    default = "qa"
+    description = "prefix"
+    type        = string
+    default = "qa3"
 }
