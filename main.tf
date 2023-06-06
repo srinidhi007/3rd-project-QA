@@ -18,4 +18,11 @@ module "resource_group" {
   resource_group       = "${var.resource_group}"
   location             = "${var.location}"
 }
-# Reference the AppService Module here.
+module "app_service" {
+  source               = "../../modules/appservice"
+  resource_group       = "${module.resource_group.resource_group}"
+  location             = "${var.location}"
+  resource_type        = "AppService"
+  application_type     = "${var.application_type}"
+  tags                 = "${loval.tags}"
+}

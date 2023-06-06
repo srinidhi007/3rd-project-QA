@@ -1,7 +1,7 @@
 resource "azurerm_app_service_plan" "test" {
-  name                = ""
-  location            = ""
-  resource_group_name = ""
+  name                = "app-service-plan"-"${var.qa}"
+  location            = "${var.resource}"
+  resource_group_name = "${var.resource_group}"
 
   sku {
     tier = "Free"
@@ -10,9 +10,9 @@ resource "azurerm_app_service_plan" "test" {
 }
 
 resource "azurerm_app_service" "test" {
-  name                = ""
-  location            = ""
-  resource_group_name = ""
+  name                = "app-service"-"${var.qa}"
+  location            = "${var.resource}"
+  resource_group_name = "${var.resource_group}"
   app_service_plan_id = azurerm_app_service_plan.test.id
 
   app_settings = {
