@@ -6,5 +6,11 @@ variable "resource_group" {}
 
 # Tags
 variable "tags" {
-  type = "map"
+  type = map
+}
+
+variable "qa" {
+    description = "prefix"
+    type        = string
+    default = "qa"
 }
